@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Flowchart voor dataset opschonen</title>
+        <title>Flowchart voor data-analyse</title>
         <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
         <script>
             mermaid.initialize({startOnLoad:true, theme: 'neutral'});
@@ -29,24 +29,16 @@
     <body>
         <div class="mermaid">
             graph TB
-            A[Start dataset opschonen (260 cases)]
-            B{Antwoord lengte in meters?}
-            C[Hercodering naar centimeters]
-            D{Lengte < 141 cm OR lengte > 251 cm OR gewicht < 38 kg OR gewicht > 595 kg}
-            E[Waarde als missend]
-            F{Lengte en gewicht correct AND vragen over koffie en geluk ingevuld?}
-            G[Analyse (193 cases)]
-            H[Geen deelnemer van analyse]
+            A[Koffieconsumptie per dag (2 vragen)]
+            B[Zelfgerapporteerd geluksgevoel (TCA & SHS)]
+            C[Demografische kenmerken (geslacht, rookgedrag, etc.)]
+            D[BMI berekening]
+            E[Obesitas categorisering]
             
             A --> B
-            B -- Ja --> C
-            B -- Nee --> D
+            B --> C
             C --> D
-            D -- Ja --> E
-            D -- Nee --> F
-            E --> F
-            F -- Ja --> G
-            F -- Nee --> H
+            D --> E
         </div>
     </body>
 </html>
