@@ -1,77 +1,54 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Flowchart voor Dataset Opschonen en Koffieconsumptie per dag</title>
+        <title>Flowchart voor dataset opschonen</title>
         <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
         <script>
-            mermaid.initialize({
-                startOnLoad:true,
-                theme: 'forest',
-                flowchart:{
-                    curve: 'basis'
-                }
-            });
+            mermaid.initialize({startOnLoad:true, theme: 'neutral'});
         </script>
         <style>
             body {
-                background-color: #f5f5f5;
+                background-color: #fff;
                 font-family: Arial, sans-serif;
             }
 
             .mermaid {
-                display: inline-block;
-                vertical-align: top;
-                width: 45%;
-                margin: 2.5%;
+                display: block;
+                margin: auto;
+                width: 80%;
                 padding: 20px;
                 background-color: #fff;
-                box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.1);
-                border-radius: 15px;
+                text-transform: lowercase;
+            }
+
+            .mermaid div:first-letter {
+                text-transform: capitalize;
             }
         </style>
     </head>
     <body>
         <div class="mermaid">
             graph TB
-            A[260 Deelnemers]
-            B[Start Dataset Opschonen]
-            C{Antwoord Lengte in Meters?}
-            D[Hercodering naar Centimeters]
-            E{Lengte < 141 cm OR Lengte > 251 cm OR Gewicht < 38 kg OR Gewicht > 595 kg}
-            F[Waarde als Missend]
-            G{Lengte en Gewicht Correct AND Vragen over Koffie en Geluk Ingevuld?}
-            H[Analyse]
-            I[Deelnemer van Analyse]
-            J[193 Deelnemers]
+            A[Start dataset opschonen]
+            B{Antwoord lengte in meters?}
+            C[Hercodering naar centimeters]
+            D{Lengte < 141 cm OR lengte > 251 cm OR gewicht < 38 kg OR gewicht > 595 kg}
+            E[Waarde als missend]
+            F{Lengte en gewicht correct AND vragen over koffie en geluk ingevuld?}
+            G[Analyse]
+            H[Deelnemer van analyse]
+            I[193 deelnemers]
             
             A --> B
-            B --> C
-            C -- Ja --> D
-            C -- Nee --> E
-            D --> E
-            E -- Ja --> F
-            E -- Nee --> G
-            F --> G
-            G -- Ja --> H
-            G -- Nee --> I
-            H --> J
-        </div>
-        <div class="mermaid">
-            graph TB
-            A[Koffieconsumptie per dag]
-            B[Zelfgerapporteerd geluksgevoel]
-            C[Demografische kenmerken]
-            D{Antwoorden op vragen over Koffie en Geluk Correct?}
-            E[Analyse]
-            F[Deelnemer van Analyse]
-            G[193 Deelnemers]
-
-            A --> D
-            B --> D
+            B -- Ja --> C
+            B -- Nee --> D
             C --> D
             D -- Ja --> E
             D -- Nee --> F
-            E --> G
+            E --> F
+            F -- Ja --> G
+            F -- Nee --> H
+            G --> I
         </div>
     </body>
 </html>
