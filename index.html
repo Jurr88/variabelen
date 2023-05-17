@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flowchart voor Dataset Analyse</title>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>
+            mermaid.initialize({startOnLoad:true});
+        </script>
+        <style>
+            .mermaid {
+                margin: auto;
+                width: 70%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="mermaid">
+            graph TD
+            A[Start Analyse]
+            B[Vragen over Koffieconsumptie]
+            C[Bereken Koffieconsumptie per Dag]
+            D[Vraag over TCA]
+            E[Vragen over SHS]
+            F[Bereken Gemiddelde SHS Score]
+            G[Vragen over Demografische Kenmerken]
+            H[Bereken BMI]
+            I[Codeer Obesitas]
+            J[Analyse]
+            
+            A --> B
+            B --> C
+            C --> D
+            D --> E
+            E --> F
+            F --> G
+            G --> H
+            H --> I
+            I --> J
+        </div>
+    </body>
+</html>
